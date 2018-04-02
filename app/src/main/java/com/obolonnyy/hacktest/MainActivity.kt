@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(),
-        MainView {
+        MainView, ParticipantsAdapter.OnItemClicker {
 
     private val presenter by lazy { MainPresenter(this) }
 
@@ -16,8 +16,16 @@ class MainActivity : AppCompatActivity(),
         presenter.initAllItems()
     }
 
-    override fun initRecyclerView(elements: List<Participant>){
+    override fun initRecyclerView(elements: List<Participant>) {
         mainRecyclerView.layoutManager = LinearLayoutManager(this)
-        mainRecyclerView.adapter = ParticipantsAdapter(elements)
+        mainRecyclerView.adapter = ParticipantsAdapter(elements, this)
+    }
+
+    override fun onPersonClick(participant: Participant) {
+        val fragment = ParticipantInfoFragment()
+        fragment.participant = participant
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.main_container, fragment, ParticipantInfoFragment.TAG)
+        transaction.commit()
     }
 }

@@ -10,7 +10,13 @@ import android.widget.TextView
 /**
  * Created by Vova on 01.04.2018.
  */
-class ParticipantsAdapter(var elements: List<Participant>) : Adapter<ParticipantsAdapter.ParticipantViewHolder>() {
+class ParticipantsAdapter(var elements: List<Participant>,
+                          private val onItemClicker: OnItemClicker) :
+        Adapter<ParticipantsAdapter.ParticipantViewHolder>() {
+
+    interface OnItemClicker {
+        fun onPersonClick(participant: Participant)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ParticipantViewHolder {
         val inflater: LayoutInflater = LayoutInflater.from(parent.context)
@@ -22,6 +28,7 @@ class ParticipantsAdapter(var elements: List<Participant>) : Adapter<Participant
 
     override fun onBindViewHolder(holder: ParticipantViewHolder, position: Int) {
         holder.fio.text = "${elements[position].firstName} ${elements[position].lastName}"
+        holder.root.setOnClickListener { onItemClicker.onPersonClick(elements[position]) }
     }
 
     inner class ParticipantViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -29,7 +36,7 @@ class ParticipantsAdapter(var elements: List<Participant>) : Adapter<Participant
         val fio = view.findViewById<TextView>(R.id.personTextView)
     }
 
-    public fun updateElements(newElements: ArrayList<Participant> ){
+    public fun updateElements(newElements: ArrayList<Participant>) {
         this.elements = newElements
         notifyDataSetChanged()
     }
