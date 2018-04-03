@@ -12,6 +12,8 @@ import android.view.ViewGroup
  */
 class ParticipantInfoFragment : Fragment() {
 
+    // Тут должна быть карточка одного участника
+
     lateinit var participant: Participant
 
     companion object {
