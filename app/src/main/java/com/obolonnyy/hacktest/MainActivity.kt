@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity(),
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ParticipantDatabaseService.init(this)
+        ParticipantDatabaseService.prepopulateParticipantsIfFirstRun(this)
         setContentView(R.layout.activity_main)
         presenter.initAllItems()
     }
