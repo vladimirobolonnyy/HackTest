@@ -20,15 +20,6 @@ class MainActivity : AppCompatActivity(),
         presenter.initAllItems()
     }
 
-    public fun addNewParticipant(view: View) {
-/*        val fragment = NewParticipantFragment()
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.main_container, fragment, NewParticipantFragment.TAG)
-        transaction.addToBackStack(NewParticipantFragment.TAG)
-        transaction.commit()*/
-        Toast.makeText( this, "Clicked", Toast.LENGTH_SHORT).show()
-    }
-
     public fun removeParticipant(view: View) {
         Toast.makeText( this, "Clicked", Toast.LENGTH_SHORT).show()
     }
@@ -53,5 +44,13 @@ class MainActivity : AppCompatActivity(),
         } else {
             super.onBackPressed()
         }
+    }
+
+    fun openNewParticipantForm(view: View) {
+        val fragment = NewParticipantFragment()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.main_container, fragment, NewParticipantFragment.TAG)
+        transaction.addToBackStack(NewParticipantFragment.TAG)
+        transaction.commit()
     }
 }
