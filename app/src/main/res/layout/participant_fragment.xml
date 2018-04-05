@@ -1,13 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="participant" />
+        android:layout_below="@+id/photo"
+        android:id="@+id/labelFirstName"
+        style="@style/ParticipantStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Имя:" />
+
+    <TextView
+        android:layout_below="@+id/photo"
+        android:id="@+id/firstName"
+        style="@style/ParticipantStyle"
+        android:layout_toRightOf="@+id/labelFirstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="firstName" />
+
+
+    <TextView
+        android:layout_below="@+id/firstName"
+        style="@style/ParticipantStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/labelLastName"
+        android:text="Фамилия:" />
+
+    <TextView
+        android:layout_below="@+id/firstName"
+        android:layout_toRightOf="@+id/labelLastName"
+        android:id="@+id/lastName"
+        style="@style/ParticipantStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="lastName" />
+
+
+    <TextView
+        android:layout_below="@+id/labelLastName"
+        style="@style/ParticipantStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/labelMiddleName"
+        android:text="Отчество:" />
+
+    <TextView
+        android:layout_below="@+id/labelLastName"
+        android:layout_toRightOf="@+id/labelMiddleName"
+        android:id="@+id/middleName"
+        style="@style/ParticipantStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="middleName" />
+
+
+    <TextView
+
+        android:id="@+id/labelSex"
+        android:layout_below="@+id/labelMiddleName"
+        style="@style/ParticipantStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Пол:" />
+
+    <TextView
+        android:layout_below="@+id/labelMiddleName"
+        android:layout_toRightOf="@+id/labelSex"
+        android:id="@+id/sex"
+        style="@style/ParticipantStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sex" />
+
+
+    <TextView
+        android:id="@+id/labelGroup"
+        style="@style/ParticipantStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/labelSex"
+        android:text="Группа:" />
+
+    <TextView
+        android:id="@+id/group"
+        android:layout_below="@+id/labelSex"
+        android:layout_toRightOf="@+id/labelGroup"
+        style="@style/ParticipantStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="group" />
+
+
+    <TextView
+        android:id="@+id/labelDescriptions"
+        android:layout_below="@+id/labelGroup"
+        style="@style/ParticipantStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Описание:" />
+
+    <TextView
+        android:layout_toRightOf="@+id/labelDescriptions"
+        android:layout_below="@+id/labelGroup"
+        android:id="@+id/description"
+        style="@style/ParticipantStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="description" />
 
 </RelativeLayout>

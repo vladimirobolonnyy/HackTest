@@ -16,7 +16,9 @@ class MainPresenter(val view: MainView) {
         val result = ArrayList<Participant>()
         result.add(Participant("Владимир Оболонный"))
         result.add(Participant("Максим Хабрат"))
-        result.add(Participant("Михаил Яковенко"))
+        result.add(Participant("Михаил", "Яковенко", "Андреевич",
+                "M", "Group?", "reference",
+                "Самый лучший разраб в мире"))
         result.add(Participant("Евгений Саневич"))
         return result
     }
