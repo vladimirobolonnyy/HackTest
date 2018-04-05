@@ -1,6 +1,6 @@
 package com.obolonnyy.hacktest
 
-import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -27,7 +27,7 @@ class ParticipantInfoFragment : Fragment() {
         val view: View = inflater.inflate(R.layout.participant_fragment, container, false)
 
         val imageView = view.findViewById<ImageView>(R.id.photo)
-        imageView.setImageDrawable(Drawable.createFromPath("image/i.jpg"))
+        imageView.setImageURI(Uri.parse(participant.photopath))
 
         val firstName = view.findViewById<TextView>(R.id.firstName)
         firstName?.text = participant.firstName

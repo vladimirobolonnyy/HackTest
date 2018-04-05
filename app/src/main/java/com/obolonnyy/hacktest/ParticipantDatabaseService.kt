@@ -2,9 +2,8 @@ package com.obolonnyy.hacktest
 
 import android.content.Context
 import io.realm.Realm
-import io.realm.kotlin.delete
-import io.realm.kotlin.isLoaded
 import io.realm.kotlin.where
+
 
 /**
  * Created by max on 02.04.2018.
@@ -20,21 +19,23 @@ object ParticipantDatabaseService {
         val appSettings = context.getSharedPreferences("BMSTU_PARTICIPANTS", Context.MODE_PRIVATE)
         val isFirstRun = appSettings.getBoolean("IS_FIRST_RUN", true)
         if (isFirstRun) {
-            prepopulateParticipants()
+            prepopulateParticipants(context)
             val settingsEditor = appSettings.edit()
             settingsEditor.putBoolean("IS_FIRST_RUN", false)
             settingsEditor.commit()
         }
     }
 
-    private fun prepopulateParticipants() {
+    private fun prepopulateParticipants(context: Context) {
+
+        val mihanImagePath = "android.resource://com.obolonnyy.hacktest/"+R.mipmap.mihan
         val initialGang = listOf(
                 Participant(firstName = "Максим", lastName = "Хабрат", middleName = "Дмитриевич",
                         group = "ИУ3-48м", photopath = "", description = "Крутой парень"),
                 Participant(firstName = "Владимир", lastName =  "Оболонный", middleName = "Игоревич",
                         group = "ИУ3-47м", photopath = "", description = "Крутой парень"),
                 Participant(firstName = "Михаил", lastName = "Яковенко", middleName =  "Андреевич",
-                        group = "ИУ3-48м", photopath = "", description = "Крутой парень"),
+                        group = "ИУ3-48м", photopath = mihanImagePath, description = "Крутой парень"),
                 Participant(firstName = "Евгений", lastName = "Саневич",  middleName = "Григорьевич",
                         group = "ИУ3-48м", photopath = "", description = "Крутой парень")
         )
