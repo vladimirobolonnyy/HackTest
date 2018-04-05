@@ -6,8 +6,10 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 
 
 /**
@@ -37,9 +39,6 @@ class ParticipantInfoFragment : Fragment() {
 
         val middleName = view.findViewById<TextView>(R.id.middleName)
         middleName?.text = participant.middleName
-
-        val sex = view.findViewById<TextView>(R.id.sex)
-        sex?.text = participant.sex
 
         val group = view.findViewById<TextView>(R.id.group)
         group?.text = participant.group

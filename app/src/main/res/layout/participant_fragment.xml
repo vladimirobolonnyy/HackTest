@@ -2,10 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white">
 
     <ImageView
         android:id="@+id/photo"
+        android:layout_marginBottom="20px"
+        android:layout_marginTop="20px"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -62,38 +66,17 @@
         android:layout_height="wrap_content"
         android:text="middleName" />
 
-
-    <TextView
-
-        android:id="@+id/labelSex"
-        android:layout_below="@+id/labelMiddleName"
-        style="@style/ParticipantStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="Пол:" />
-
-    <TextView
-        android:layout_below="@+id/labelMiddleName"
-        android:layout_toRightOf="@+id/labelSex"
-        android:id="@+id/sex"
-        style="@style/ParticipantStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="sex" />
-
-
     <TextView
         android:id="@+id/labelGroup"
         style="@style/ParticipantStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/labelSex"
+        android:layout_below="@+id/labelMiddleName"
         android:text="Группа:" />
 
     <TextView
         android:id="@+id/group"
-        android:layout_below="@+id/labelSex"
+        android:layout_below="@+id/labelMiddleName"
         android:layout_toRightOf="@+id/labelGroup"
         style="@style/ParticipantStyle"
         android:layout_width="wrap_content"
@@ -117,5 +100,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="description" />
+
+    <Button
+        android:layout_marginTop="20px"
+        android:text="Удалить"
+        android:layout_below="@+id/labelDescriptions"
+        android:id="@+id/removeActionButton"
+        android:onClick="removeParticipant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true" />
 
 </RelativeLayout>

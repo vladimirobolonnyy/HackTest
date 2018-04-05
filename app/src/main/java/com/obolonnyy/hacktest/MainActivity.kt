@@ -29,6 +29,10 @@ class MainActivity : AppCompatActivity(),
         Toast.makeText( this, "Clicked", Toast.LENGTH_SHORT).show()
     }
 
+    public fun removeParticipant(view: View) {
+        Toast.makeText( this, "Clicked", Toast.LENGTH_SHORT).show()
+    }
+
     override fun initRecyclerView(elements: List<Participant>) {
         mainRecyclerView.layoutManager = LinearLayoutManager(this)
         mainRecyclerView.adapter = ParticipantsAdapter(elements, this)
