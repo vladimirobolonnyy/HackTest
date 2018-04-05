@@ -6,21 +6,18 @@
     android:orientation="vertical"
     android:clickable="true">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorPrimary" />
-
     <TextView
         android:id="@+id/personTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:textSize="24sp"
+        android:textColor="@color/BURGUNDY"
         tools:text="Оболонный Владимир Игоревич" />
 
     <View
+        android:id="@+id/bottom_line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/colorPrimary" />
+        android:background="@color/GOLD" />
 </LinearLayout>

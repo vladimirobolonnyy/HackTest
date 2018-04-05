@@ -28,17 +28,19 @@ object ParticipantDatabaseService {
 
     private fun prepopulateParticipants() {
 
-        val mihanImagePath = "android.resource://com.obolonnyy.hacktest/"+R.mipmap.mihan
-        val maxImagePath = "android.resource://com.obolonnyy.hacktest/"+R.mipmap.max
+        val mihanImagePath = "android.resource://com.obolonnyy.hacktest/"+ R.mipmap.mihan
+        val vovanImagePath = "android.resource://com.obolonnyy.hacktest/"+ R.mipmap.vovan
+        val maxanImagePath = "android.resource://com.obolonnyy.hacktest/"+ R.mipmap.maxan
+        val jeganImagePath = "android.resource://com.obolonnyy.hacktest/"+ R.mipmap.jegan
         val initialGang = listOf(
                 Participant(firstName = "Максим", lastName = "Хабрат", middleName = "Дмитриевич",
-                        group = "ИУ3-48м", photopath = maxImagePath, description = "Крутой парень"),
+                        group = "ИУ3-48м", photopath = maxanImagePath, description = "Крутой парень"),
                 Participant(firstName = "Владимир", lastName =  "Оболонный", middleName = "Игоревич",
-                        group = "ИУ3-47м", photopath = "", description = "Крутой парень"),
+                        group = "ИУ3-47м", photopath = vovanImagePath, description = "Крутой парень"),
                 Participant(firstName = "Михаил", lastName = "Яковенко", middleName =  "Андреевич",
                         group = "ИУ3-48м", photopath = mihanImagePath, description = "Крутой парень"),
                 Participant(firstName = "Евгений", lastName = "Саневич",  middleName = "Григорьевич",
-                        group = "ИУ3-48м", photopath = "", description = "Крутой парень")
+                        group = "ИУ3-48м", photopath = jeganImagePath, description = "Крутой парень")
         )
         val realm = Realm.getDefaultInstance()
         realm.beginTransaction()
