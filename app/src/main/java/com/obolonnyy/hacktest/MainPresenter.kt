@@ -1,5 +1,7 @@
 package com.obolonnyy.hacktest
 
+import io.realm.Realm
+
 /**
  * Created by Vladimir Obolonnyy on 02.04.2018.
  */
@@ -7,7 +9,8 @@ class MainPresenter(val view: MainView) {
     // Тут должна быть вся логика работы приложения
 
     fun initAllItems() {
-        view.initRecyclerView(generateUs())
+        view.initRecyclerView(ParticipantDatabaseService.getAllParticipants())
+        //view.initRecyclerView(database.allParticipants)
     }
 
     fun generateUs(): ArrayList<Participant> {
