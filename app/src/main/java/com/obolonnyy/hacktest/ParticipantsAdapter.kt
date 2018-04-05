@@ -35,9 +35,4 @@ class ParticipantsAdapter(var elements: List<Participant>,
         val root = view
         val fio = view.findViewById<TextView>(R.id.personTextView)
     }
-
-    public fun updateElements(newElements: ArrayList<Participant>) {
-        this.elements = newElements
-        notifyDataSetChanged()
-    }
 }

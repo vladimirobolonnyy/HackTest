@@ -57,10 +57,9 @@ object ParticipantDatabaseService {
     }
 
     fun removeParticipant(p: Participant) {
-        val realm = Realm.getDefaultInstance()
-        realm.beginTransaction()
-        p.deleteFromRealm()
-        realm.commitTransaction()
+        Realm.getDefaultInstance().executeTransaction { realm ->
+            realm.where<Participant>().equalTo("id", p.id).findFirst()?.deleteFromRealm()
+        }
     }
 
     fun getAllParticipants() : List<Participant> {

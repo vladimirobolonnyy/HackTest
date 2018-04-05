@@ -19,6 +19,7 @@ class ParticipantInfoFragment : Fragment() {
 
     // Тут должна быть карточка одного участника
 
+    lateinit var presenter: MainPresenter
     lateinit var participant: Participant
 
     companion object {
@@ -45,6 +46,15 @@ class ParticipantInfoFragment : Fragment() {
 
         val description = view.findViewById<TextView>(R.id.description)
         description?.text = participant.description
+
+        val delButton = view.findViewById<Button>(R.id.removeActionButton)
+        delButton.setOnClickListener({
+            val name =  participant.firstName
+            val lastName =  participant.lastName
+            presenter.removeParticipant(participant)
+            activity!!.onBackPressed()
+            Toast.makeText(this.context, "$name $lastName удалён", Toast.LENGTH_SHORT).show()
+        })
 
         return view
     }
