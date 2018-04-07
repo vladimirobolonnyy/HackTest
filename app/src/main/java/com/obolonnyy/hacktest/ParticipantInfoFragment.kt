@@ -6,16 +6,19 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 
 
 /**
+ * Фрагмент отображения информации об участнике
+ *
  * Created by Vladimir Obolonnyy on 02.04.2018.
  */
 class ParticipantInfoFragment : Fragment() {
 
-    // Тут должна быть карточка одного участника
 
     lateinit var presenter: MainPresenter
     lateinit var participant: Participant
@@ -57,7 +60,4 @@ class ParticipantInfoFragment : Fragment() {
         return view
     }
 
-//    fun removeParticipant (view : View) {
-//
-//    }
 }

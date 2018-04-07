@@ -9,16 +9,15 @@ import android.widget.Button
 import android.widget.EditText
 
 /**
+ * Фрагмент создания нового участника
+ *
  * Created by Vladimir Obolonnyy on 03.04.2018.
  */
 class NewParticipantFragment : Fragment() {
 
-    // Это карточка создания нового участника
-
     companion object {
         val TAG = "NewParticipantFragment"
     }
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view: View = inflater.inflate(R.layout.new_participant_fragment, container, false)
@@ -28,7 +27,6 @@ class NewParticipantFragment : Fragment() {
         })
         return view
     }
-
 
     private fun addNewParticipant(view: View) {
         val lastNameInput = view.findViewById<EditText>(R.id.lastNameInput)
