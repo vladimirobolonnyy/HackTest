@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity(),
         presenter.initAllItems()
     }
 
+
     public fun removeParticipant(view: View) {
         Toast.makeText( this, "Clicked", Toast.LENGTH_SHORT).show()
     }
