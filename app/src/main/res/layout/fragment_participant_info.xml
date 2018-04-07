@@ -1,113 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
     android:clickable="true">
 
-    <ImageView
-        android:id="@+id/photo"
-        android:layout_marginBottom="20px"
-        android:layout_marginTop="20px"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_below="@+id/photo"
-        android:id="@+id/labelFirstName"
-        style="@style/ParticipantStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Имя:" />
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20px"
+            android:layout_marginTop="20px"
+            tools:layout_width="200dp"
+            tools:layout_height="200dp"
+            tools:background="@color/lightgray"/>
 
-    <TextView
-        android:layout_below="@+id/photo"
-        android:id="@+id/firstName"
-        style="@style/ParticipantStyle"
-        android:layout_toRightOf="@+id/labelFirstName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="firstName" />
+        <TextView
+            android:id="@+id/labelFirstName"
+            style="@style/ParticipantStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/photo"
+            android:text="Имя:" />
 
-
-    <TextView
-        android:layout_below="@+id/firstName"
-        style="@style/ParticipantStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/labelLastName"
-        android:text="Фамилия:" />
-
-    <TextView
-        android:layout_below="@+id/firstName"
-        android:layout_toRightOf="@+id/labelLastName"
-        android:id="@+id/lastName"
-        style="@style/ParticipantStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="lastName" />
+        <TextView
+            android:id="@+id/firstName"
+            style="@style/ParticipantStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/photo"
+            android:layout_toRightOf="@+id/labelFirstName"
+            android:text="firstName" />
 
 
-    <TextView
-        android:layout_below="@+id/labelLastName"
-        style="@style/ParticipantStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/labelMiddleName"
-        android:text="Отчество:" />
+        <TextView
+            android:id="@+id/labelLastName"
+            style="@style/ParticipantStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/firstName"
+            android:text="Фамилия:" />
 
-    <TextView
-        android:layout_below="@+id/labelLastName"
-        android:layout_toRightOf="@+id/labelMiddleName"
-        android:id="@+id/middleName"
-        style="@style/ParticipantStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="middleName" />
-
-    <TextView
-        android:id="@+id/labelGroup"
-        style="@style/ParticipantStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/labelMiddleName"
-        android:text="Группа:" />
-
-    <TextView
-        android:id="@+id/group"
-        android:layout_below="@+id/labelMiddleName"
-        android:layout_toRightOf="@+id/labelGroup"
-        style="@style/ParticipantStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="group" />
+        <TextView
+            android:id="@+id/lastName"
+            style="@style/ParticipantStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/firstName"
+            android:layout_toRightOf="@+id/labelLastName"
+            android:text="lastName" />
 
 
-    <TextView
-        android:id="@+id/labelDescriptions"
-        android:layout_below="@+id/labelGroup"
-        style="@style/ParticipantStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Описание:" />
+        <TextView
+            android:id="@+id/labelMiddleName"
+            style="@style/ParticipantStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/labelLastName"
+            android:text="Отчество:" />
 
-    <TextView
-        android:layout_toRightOf="@+id/labelDescriptions"
-        android:layout_below="@+id/labelGroup"
-        android:id="@+id/description"
-        style="@style/ParticipantStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="description" />
+        <TextView
+            android:id="@+id/middleName"
+            style="@style/ParticipantStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/labelLastName"
+            android:layout_toRightOf="@+id/labelMiddleName"
+            android:text="middleName" />
 
-    <Button
-        android:layout_marginTop="20px"
-        android:text="Удалить"
-        android:layout_below="@+id/labelDescriptions"
-        android:id="@+id/removeActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true" />
+        <TextView
+            android:id="@+id/labelGroup"
+            style="@style/ParticipantStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/labelMiddleName"
+            android:text="Группа:" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/group"
+            style="@style/ParticipantStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/labelMiddleName"
+            android:layout_toRightOf="@+id/labelGroup"
+            android:text="group" />
+
+
+        <TextView
+            android:id="@+id/labelDescriptions"
+            style="@style/ParticipantStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/labelGroup"
+            android:text="Описание:" />
+
+        <TextView
+            android:id="@+id/description"
+            style="@style/ParticipantStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/labelGroup"
+            android:layout_toRightOf="@+id/labelDescriptions"
+            android:text="description" />
+
+        <Button
+            android:id="@+id/removeActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/labelDescriptions"
+            android:layout_marginTop="20px"
+            android:clickable="true"
+            android:text="Удалить" />
+
+    </RelativeLayout>
+</ScrollView>

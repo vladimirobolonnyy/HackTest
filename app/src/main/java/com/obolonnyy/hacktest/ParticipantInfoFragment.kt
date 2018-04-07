@@ -1,14 +1,14 @@
 package com.obolonnyy.hacktest
 
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import kotlinx.android.synthetic.main.fragment_participant_info.*
 
 
 /**
@@ -23,34 +23,41 @@ class ParticipantInfoFragment : Fragment() {
 
     companion object {
         val TAG = "ParticipantInfoFragment"
+        val maxHeight = 400
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view: View = inflater.inflate(R.layout.fragment_participant_info, container, false)
+        return inflater.inflate(R.layout.fragment_participant_info, container, false)
+    }
 
-        val imageView = view.findViewById<ImageView>(R.id.photo)
-        imageView.setImageURI(Uri.parse(participant.photopath))
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        val firstName = view.findViewById<TextView>(R.id.firstName)
-        firstName?.text = participant.firstName
+        // Теперь все вьюхи автоматом подкачиваются благодаря
+        // kotlinx.android.synthetic.main.fragment_new_participant.*
 
-        val lastName = view.findViewById<TextView>(R.id.lastName)
-        lastName?.text = participant.lastName
+        if (participant.photopath.isNotEmpty()) {
+            val bitmap = uriToScaledPhoto(participant.photopath)
+            photo.setImageBitmap(bitmap)
+        }
 
-        val middleName = view.findViewById<TextView>(R.id.middleName)
-        middleName?.text = participant.middleName
-
-        val group = view.findViewById<TextView>(R.id.group)
-        group?.text = participant.group
-
-        val description = view.findViewById<TextView>(R.id.description)
-        description?.text = participant.description
-
-        val delButton = view.findViewById<Button>(R.id.removeActionButton)
-        delButton.setOnClickListener({
+        firstName.text = participant.firstName
+        lastName.text = participant.lastName
+        middleName.text = participant.middleName
+        group.text = participant.group
+        description.text = participant.description
+        removeActionButton.setOnClickListener({
             presenter.removeParticipant(participant)
         })
+    }
 
-        return view
+    private fun uriToScaledPhoto(stringUri: String): Bitmap {
+        val uri = Uri.parse(stringUri)
+        var bitmap = MediaStore.Images.Media.getBitmap(this.context!!.contentResolver, uri)
+        val aspectRatio = bitmap.height.toFloat() / bitmap.width.toFloat()
+        val width = Math.round(maxHeight / aspectRatio)
+        bitmap = Bitmap.createScaledBitmap(
+                bitmap, width, maxHeight, true)
+        return bitmap
     }
 }

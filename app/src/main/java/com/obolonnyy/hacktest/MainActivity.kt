@@ -1,10 +1,13 @@
 package com.obolonnyy.hacktest
 
+import android.Manifest
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
+import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -20,6 +23,7 @@ class MainActivity : AppCompatActivity(),
     private val presenter by lazy { MainPresenter(this) }
     private lateinit var addButton: FloatingActionButton
     private val animationDuration = 300L
+    private val PICK_FROM_GALLERY: Int = 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +32,7 @@ class MainActivity : AppCompatActivity(),
         setContentView(R.layout.activity_main)
         addButton = this.findViewById(R.id.floatingActionButton)
         presenter.initMainAdapterItems()
+        checkPermissions()
     }
 
     override fun initRecyclerView(elements: List<Participant>) {
@@ -68,9 +73,9 @@ class MainActivity : AppCompatActivity(),
     }
 
     private fun hideAddButtonWithAnimation() {
+        addButton.isClickable = false
         addButton.setAlpha(1.0f)
         addButton.animate()
-//                .translationX(addButton.width.toFloat())
                 .setDuration(animationDuration)
                 .alpha(0.0f)
                 .setListener(object : AnimatorListenerAdapter() {
@@ -82,6 +87,7 @@ class MainActivity : AppCompatActivity(),
     }
 
     private fun showAddButtonWithAnimation() {
+        addButton.isClickable = true
         addButton.setAlpha(0.0f)
         addButton.animate()
                 .setDuration(animationDuration)
@@ -117,5 +123,19 @@ class MainActivity : AppCompatActivity(),
             }
         }
         return null
+    }
+
+    fun checkPermissions(): Boolean {
+        return if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                    PICK_FROM_GALLERY)
+            false
+        } else {
+            true
+        }
     }
 }
