@@ -25,7 +25,6 @@ class NewParticipantFragment : Fragment() {
         val addParticipantButton = view.findViewById<Button>(R.id.addNewParticipantButton)
         addParticipantButton.setOnClickListener({
             _ -> addNewParticipant(view)
-            
         })
         return view
     }
@@ -46,5 +45,7 @@ class NewParticipantFragment : Fragment() {
                 description = descriptionInput.text.toString()
         )
         ParticipantDatabaseService.addParticipant(participant)
+
+        activity!!.supportFragmentManager.popBackStackImmediate()
     }
 }
