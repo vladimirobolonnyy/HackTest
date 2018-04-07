@@ -13,11 +13,11 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_new_participant.*
 
 /**
+ * Фрагмент создания нового участника
+ *
  * Created by Vladimir Obolonnyy on 03.04.2018.
  */
 class NewParticipantFragment : Fragment() {
-
-    // Это карточка создания нового участника
 
     companion object {
         const val TAG = "NewParticipantFragment"

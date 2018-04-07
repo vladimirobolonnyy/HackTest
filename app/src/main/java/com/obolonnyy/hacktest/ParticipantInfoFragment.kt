@@ -8,15 +8,16 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import kotlinx.android.synthetic.main.fragment_participant_info.*
 
 
 /**
+ * Фрагмент отображения информации об участнике
+ *
  * Created by Vladimir Obolonnyy on 02.04.2018.
  */
 class ParticipantInfoFragment : Fragment() {
-
-    // Тут карточка отображения одного участника
 
     lateinit var presenter: MainPresenter
     lateinit var participant: Participant
