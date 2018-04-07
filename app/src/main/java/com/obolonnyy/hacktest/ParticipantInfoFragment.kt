@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -15,7 +16,7 @@ import android.widget.TextView
  */
 class ParticipantInfoFragment : Fragment() {
 
-    // Тут должна быть карточка одного участника
+    // Тут карточка отображения одного участника
 
     lateinit var presenter: MainPresenter
     lateinit var participant: Participant
@@ -25,7 +26,7 @@ class ParticipantInfoFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view: View = inflater.inflate(R.layout.participant_fragment, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_participant_info, container, false)
 
         val imageView = view.findViewById<ImageView>(R.id.photo)
         imageView.setImageURI(Uri.parse(participant.photopath))
@@ -47,17 +48,9 @@ class ParticipantInfoFragment : Fragment() {
 
         val delButton = view.findViewById<Button>(R.id.removeActionButton)
         delButton.setOnClickListener({
-            val name =  participant.firstName
-            val lastName =  participant.lastName
             presenter.removeParticipant(participant)
-            activity!!.onBackPressed()
-            Toast.makeText(this.context, "$name $lastName удалён", Toast.LENGTH_SHORT).show()
         })
 
         return view
     }
-
-//    fun removeParticipant (view : View) {
-//
-//    }
 }

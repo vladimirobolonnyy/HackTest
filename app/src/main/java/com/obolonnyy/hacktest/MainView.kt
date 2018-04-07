@@ -5,4 +5,7 @@ package com.obolonnyy.hacktest
  */
 interface MainView {
     fun initRecyclerView(elements: List<Participant>)
+    fun onBackPressed()
+    fun makeToast(text: String, lengt: Int)
+    fun hideKeyboard()
 }
