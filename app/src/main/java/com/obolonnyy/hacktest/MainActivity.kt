@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity(),
     }
 
     override fun onPersonClick(participant: Participant) {
+        (mainRecyclerView.adapter as ParticipantsAdapter).userCanClick = false
         hideAddButtonWithAnimation()
         val fragment = ParticipantInfoFragment()
         fragment.presenter = this.presenter
@@ -108,6 +109,7 @@ class MainActivity : AppCompatActivity(),
             transaction.remove(activeFragment)
             transaction.commit()
             supportFragmentManager.popBackStack()
+            (mainRecyclerView.adapter as ParticipantsAdapter).userCanClick = true
         } else {
             super.onBackPressed()
         }

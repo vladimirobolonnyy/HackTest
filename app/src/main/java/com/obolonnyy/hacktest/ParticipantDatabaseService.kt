@@ -50,14 +50,14 @@ object ParticipantDatabaseService {
                                 "и разработке смарт-контрактов для Ethereum."),
                 Participant(firstName = "Владимир", lastName =  "Оболонный", middleName = "Игоревич",
                         group = "ИУ3-47м", photopath = vovanImagePath,
-                        description = "Возраст 23 года. Работает Android-разраюотчиком в Сбертехе," +
+                        description = "Возраст 23 года. Работает Android-разработчиком в Сбертехе," +
                                 " а потому - главный Android-специалист команды. В свободное от " +
                                 "работы время изучает Data Science."),
                 Participant(firstName = "Михаил", lastName = "Яковенко", middleName =  "Андреевич",
                         group = "ИУ3-48м", photopath = mihanImagePath,
-                        description = "Возраст 24 года. Старший инженер-рабзработчик Сбертеха. " +
+                        description = "Возраст 24 года. Старший инженер-разработчик Сбертеха. " +
                                 "Специалист по веб-приложениям, а также методологиям разработки Agile и DevOps. " +
-                                "Не чуждается таких слов, как Gridgain, Blockcjain, Ansible и т.д."),
+                                "Не чуждается таких слов, как GridGain, Blockchain, Ansible и т.д."),
                 Participant(firstName = "Евгений", lastName = "Саневич",  middleName = "Григорьевич",
                         group = "ИУ3-48м", photopath = jeganImagePath,
                         description = "Возраст 22 года. Работал в TS Consulting, а сейчас работает в НСПК, " +

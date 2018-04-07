@@ -14,6 +14,8 @@ class ParticipantsAdapter(var elements: List<Participant>,
                           private val onItemClicker: OnItemClicker) :
         Adapter<ParticipantsAdapter.ParticipantViewHolder>() {
 
+    var userCanClick: Boolean = true
+
     interface OnItemClicker {
         fun onPersonClick(participant: Participant)
     }
@@ -28,7 +30,11 @@ class ParticipantsAdapter(var elements: List<Participant>,
 
     override fun onBindViewHolder(holder: ParticipantViewHolder, position: Int) {
         holder.fio.text = "${elements[position].firstName} ${elements[position].lastName}"
-        holder.root.setOnClickListener { onItemClicker.onPersonClick(elements[position]) }
+        holder.root.setOnClickListener {
+            if (userCanClick){
+                onItemClicker.onPersonClick(elements[position])
+            }
+        }
     }
 
     inner class ParticipantViewHolder(view: View) : RecyclerView.ViewHolder(view) {
