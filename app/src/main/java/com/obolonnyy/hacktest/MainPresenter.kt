@@ -3,20 +3,27 @@ package com.obolonnyy.hacktest
 import android.widget.Toast
 
 /**
+ * Содержит реализацию основных функций приложения.
+ *
  * Created by Vladimir Obolonnyy on 02.04.2018.
  */
 class MainPresenter(val view: MainView) {
 
-    // Тут должна быть вся логика работы приложения
-
     companion object {
-        const val fielsError = "Заполните как минимум имя и фамилию участника"
+        const val fieldsError = "Заполните как минимум имя и фамилию участника"
     }
 
+    /**
+     * Отвечает за создание и обновление содержимого списка
+     */
     fun initMainAdapterItems() {
         view.initRecyclerView(ParticipantDatabaseService.getAllParticipants())
     }
 
+    /**
+     * Удаляет указанного участника из БД участников, выводит сообщение о проведенной операции
+     * и обновляет список
+     */
     fun removeParticipant(participant: Participant) {
         val name = participant.firstName
         val lastName = participant.lastName
@@ -26,6 +33,10 @@ class MainPresenter(val view: MainView) {
         view.onBackPressed()
     }
 
+    /**
+     * Добавляет участника в БД участников, если указаны имя и фамилия участника, и обновляет список.
+     * Иначе выводит сообщение об ошибке
+     */
     fun addParticipant(participant: Participant) {
         if (participant.firstName.isNotEmpty() && participant.lastName.isNotEmpty()) {
             view.hideKeyboard()
@@ -34,7 +45,7 @@ class MainPresenter(val view: MainView) {
             initMainAdapterItems()
             view.onBackPressed()
         } else {
-            view.makeToast(fielsError, Toast.LENGTH_SHORT)
+            view.makeToast(fieldsError, Toast.LENGTH_SHORT)
         }
     }
 }

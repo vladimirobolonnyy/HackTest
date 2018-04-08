@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 /**
+ * Содержит логику по отображению списка участников
+ *
  * Created by Vova on 01.04.2018.
  */
 class ParticipantsAdapter(var elements: List<Participant>,
@@ -37,6 +39,9 @@ class ParticipantsAdapter(var elements: List<Participant>,
         }
     }
 
+    /**
+     * Отвечает за отображение одного элемента списка участников
+     */
     inner class ParticipantViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val root = view
         val fio = view.findViewById<TextView>(R.id.personTextView)
